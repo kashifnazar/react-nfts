@@ -40,10 +40,13 @@ const NFTs = ({address}: Props) => {
       })
 
   return (
-    <div className="flex-col items-center">
-        <div className='flex-col items-center text-sky-300 p-10 flex justify-center font-bold sticky top-0 bg-black'>
-            <h1 className="text-6xl">NFTs</h1>
-            <h3>${address}</h3>
+    <div>
+        <div className='flex flex-col items-center justify-center 
+                        font-bold sticky top-0 bg-black
+                        text-sky-300 p-10 border-b-2 border-sky-900 mb-10
+                        '>
+            <h1 className="text-4xl mb-5">NFTs</h1>
+            <h3>{address}</h3>
         </div>
         {nftsGrid}
     </div>
