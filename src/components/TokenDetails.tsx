@@ -17,8 +17,13 @@ const TokenDetails = ({token}: Props) => {
   
   const attributesMap = attributes && attributes.reduce((acc, element) => ({...acc, [element.trait_type]: element.value}), {})
 
+  const goToOpenSea = (token: Nft) => window.open('https://opensea.io/assets/0x59325733eb952a92e069c87f0a6168b29e80627f/6234', '_blank')
+
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center p-10'>
+      <button type='button' 
+          className="bg-sky-600 text-white px-12 py-3 text-xl rounded-lg" 
+          onClick={() => goToOpenSea(token)}>Go to OpenSea</button>
       <KeyValueOutput title="Page" data={rest} />
       <KeyValueOutput title="Metadata" data={restMetaData} />
       <KeyValueOutput title="Attributes" data={attributesMap as Record<string, string>} />
