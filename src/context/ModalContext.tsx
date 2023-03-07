@@ -37,9 +37,9 @@ export const ModalProvider = ({children}: React.PropsWithChildren) => {
                 onRequestClose={closeModal}
                 className="modal"
                 overlayClassName="overlay"
-                contentLabel="Example Modal"
             >
-                <div className="w-[100%]">
+                <div className="mr-2 text-white cursor-pointer text-4xl fixed top-0 right-0" onClick={() => closeModal()}>x</div>
+                <div>
                     {body}
                 </div>
             </Modal>

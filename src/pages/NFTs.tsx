@@ -53,8 +53,8 @@ const NFTs = ({address}: Props) => {
     <div>
         <div className='flex flex-col items-center justify-center 
                         font-bold sticky top-0 bg-black
-                        text-sky-300 p-10 border-b-2 border-sky-900 mb-10'>
-            <h1 className="text-4xl my-3">NFTs</h1>
+                        text-sky-300 p-5 border-b-2 border-sky-900 mb-10'>
+            <h1 className="text-4xl mb-3">NFTs</h1>
             <h3>{address}</h3>
         </div>
         <div className='overflow-scroll'>{nftsGrid}</div>
