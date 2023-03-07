@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.modal {
+    border: 2px grey solid;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgb(6, 4, 30);
+    max-width: 40vw;
+    max-height: 80vh;
+    overflow: scroll;
+  }
+
+.overlay {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(18, 1, 40, 0.97);
+}

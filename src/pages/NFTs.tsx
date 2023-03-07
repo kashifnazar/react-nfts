@@ -1,5 +1,7 @@
 import Token from '../components/Token'
+import TokenDetails from '../components/TokenDetails'
 import { useGrid } from '../hooks/useGrid'
+import { useModal } from '../hooks/useModal'
 
 type NftResponse = {
     "total": number | null,
@@ -33,9 +35,17 @@ type NftResponse = {
 
 const NFTs = ({address}: Props) => {
 
+    const { openModal } = useModal()
+
+    const showNftDetails = (token: Nft) => {
+
+      //In case we need to make calls using token_uri, this is the place.
+      openModal(<TokenDetails token={token} />)
+    }
+
     const nftsGrid = useGrid<Nft, NftResponse>({
         url: `https://deep-index.moralis.io/api/v2/${address}/nft`,
-        renderItem: (token: Nft) => <Token token={token} onClick={() => alert('test')} />,
+        renderItem: (token: Nft) => <Token token={token} onClick={() => showNftDetails(token)} />,
         getList: (response: NftResponse) => response.result
       })
 
@@ -43,12 +53,12 @@ const NFTs = ({address}: Props) => {
     <div>
         <div className='flex flex-col items-center justify-center 
                         font-bold sticky top-0 bg-black
-                        text-sky-300 p-10 border-b-2 border-sky-900 mb-10
-                        '>
-            <h1 className="text-4xl mb-5">NFTs</h1>
+                        text-sky-300 p-10 border-b-2 border-sky-900 mb-10'>
+            <h1 className="text-4xl my-3">NFTs</h1>
             <h3>{address}</h3>
         </div>
-        {nftsGrid}
+        <div className='overflow-scroll'>{nftsGrid}</div>
+        
     </div>
     
   )
