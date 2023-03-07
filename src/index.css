@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .modal {
-    border: 2px grey solid;
+    border: 2px rgb(38, 101, 227) solid;
     border-radius: 5px;
     position: absolute;
     background-color: rgb(6, 4, 30);
